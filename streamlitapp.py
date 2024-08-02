@@ -129,4 +129,4 @@ if st.button("Predict"):
     st.write(f"Estimated Price: {int(price_prediction[0])}€")
 
     url = "https://github.com/carpanalper/Belgium-Property-Price-Prediction"
-    st.markdown("Feel free to visit the project's [Github Repo](%s)" % url)
+    st.write("Feel free to visit the project's [Github Repo](%s)" % url)
