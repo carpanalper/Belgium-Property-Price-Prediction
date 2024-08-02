@@ -1,5 +1,3 @@
-Sure! Here’s the updated README with the deployment information included:
-
 # Belgium Property Price Prediction App
 
 ## Overview
