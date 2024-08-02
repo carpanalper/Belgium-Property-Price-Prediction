@@ -1,21 +1,17 @@
-# Starts from the python 3.10 official docker image
-FROM python:3.10
+# Official python image
+FROM python:3.10-slim
 
-# Create a folder "app" at the root of the image
-RUN mkdir /app
+# Set the working directory
+WORKDIR /Belgium-Property-Price-Prediction
 
-# Define /app as the working directory
-WORKDIR /app
+# Copy all files to the working directory
+COPY . /Belgium-Property-Price-Prediction
 
-# Copy all the files in the current directory in /app
-COPY . /app
+# Install dependencies
+RUN pip install --no-cache-dir -r requirements.txt
 
-# Update pip
-RUN pip install --upgrade pip
+# Expose the port Streamlit will run on
+EXPOSE 8501
 
-# Install dependencies from "requirements.txt"
-RUN pip install -r requirements.txt
-
-# Run the app
-# Set host to 0.0.0.0 to make it run on the container's network
-CMD uvicorn app:app --host 0.0.0.0
+# Command to run the Streamlit app
+CMD ["streamlit", "run", "streamlitapp.py", "--server.port=8501", "--server.address=0.0.0.0"]
