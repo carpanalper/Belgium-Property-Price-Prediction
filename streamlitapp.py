@@ -127,3 +127,6 @@ if st.button("Predict"):
     # Prediction with the model
     price_prediction = model.predict(input_data_scaled)
     st.write(f"Estimated Price: {int(price_prediction[0])}€")
+
+    url = "https://github.com/carpanalper/Belgium-Property-Price-Prediction"
+    st.markdown("Feel free to visit the project's [Github Repo](%s)" % url)
